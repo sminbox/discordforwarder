@@ -19,7 +19,9 @@ discordClient.once('ready', () => {
 discordClient.on('messageCreate', (message) => {
 //   if (message.channel.id === process.env.DISCORD_CHANNEL_ID && !message.author.bot) {
     if (message.channel.id === process.env.DISCORD_CHANNEL_ID ) {
-    const content = `**${message.author.username}**: ${message.content}`;
+    // const content = `**${message.author.username}**: ${message.content}`;
+    // Use Markdown formatting for Telegram
+    const content = `${message.content}`;
     telegramBot.sendMessage(process.env.TELEGRAM_CHANNEL_ID, content, { parse_mode: 'Markdown' });
   }
 });
